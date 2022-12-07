@@ -15,7 +15,10 @@ function init() {
 }
 window.addEventListener('resize', init);
 init();
-document.querySelector('.button-next').addEventListener('click', function() {
+const buttonNext = document.querySelector('.button-next');
+buttonNext.addEventListener('click', function () {
+	buttonNext.disabled = true;
+	setTimeout(() => buttonNext.disabled = false, 1000);
 	count++;
 	if (count > images.length - 1) {
 		count = 0;
@@ -23,7 +26,10 @@ document.querySelector('.button-next').addEventListener('click', function() {
 	rollSlider();
 });
 
-document.querySelector('.button-prev').addEventListener('click', function () {
+const buttonPrev = document.querySelector('.button-prev')
+buttonPrev.addEventListener('click', function () {
+	buttonPrev.disabled = true;
+	setTimeout(() => buttonPrev.disabled = false, 1000);
 	count--;
 	if (count < 0) {
 		count = images.length - 1;
